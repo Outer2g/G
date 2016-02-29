@@ -35,7 +35,7 @@ void main()
     vec3 N = normalize(normalMatrix * normal);
     vec3 P = (modelViewMatrix*vec4(vertex.xyz,1.0)).xyz;
     vec3 L = normalize(lightPosition.xyz-P);
-    vec3 V = -P;//vec3(0.,1.,0.);//-P
+    vec3 V = vec3(0.,0.,1.);//-P
     vec3 H = normalize(V + L);
     
     frontColor = bling_phong(N,H,L);
