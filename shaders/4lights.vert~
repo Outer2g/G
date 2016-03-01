@@ -1,0 +1,29 @@
+#version 330 core
+
+layout (location = 0) in vec3 vertex;
+layout (location = 1) in vec3 normal;
+layout (location = 2) in vec3 color;
+layout (location = 3) in vec2 texCoord;
+
+out vec3 N;
+out vec3 P;
+
+uniform mat4 modelViewProjectionMatrix;
+uniform mat4 modelViewMatrix;
+
+uniform mat3 normalMatrix;
+
+void main()
+{
+    N = normalize(normalMatrix * normal);
+    vec3 posLlum0 = vec3(0,10,0);
+    vec4 colLlum0 = vec4(0,1,0,1);
+    vec3 posLlum1 = vec3(0,-10,0);
+    vec4 colLlum1 = vec4(1,1,0,1);
+    vec3 posLlum2 = vec3(10,0,0);
+    vec4 colLlum2 = vec4(0,0,1,1);
+    vec3 posLlum3 = vec3(-10,0,0);
+    vec4 colLlum3 = vec4(1,0,0,1);
+    P = (modelViewMatrix*vec4(vertex,1.0)).xyz;
+    gl_Position = modelViewProjectionMatrix * vec4(vertex.xyz, 1.0);
+}
