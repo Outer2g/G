@@ -12,7 +12,7 @@ uniform float n = 8.0;
 void main()
 {
 	vec2 texCoord = vtexCoord*n;
-	if (mod(texCoord.s,2) <=1.f && mod(texCoord.t,2)<=1.f) fragColor = black;
-	else if(mod(texCoord.s,2) >1.f && mod(texCoord.t,2)>1.f) fragColor = black;
+	if (mod(texCoord.s,2) <=1.f && mod(texCoord.t,2)>1.f) fragColor = black;
+	else if(mod(texCoord.s,2) >1.f && mod(texCoord.t,2)<=1.f) fragColor = black;
 	else fragColor = grey;
 }
