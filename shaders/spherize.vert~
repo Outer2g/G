@@ -11,6 +11,8 @@ out vec2 vtexCoord;
 uniform mat4 modelViewProjectionMatrix;
 uniform mat3 normalMatrix;
 
+uniform float r = 1.0;
+
 void main()
 {
     vec3 N = normalize(normalMatrix * normal);
